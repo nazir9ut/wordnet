@@ -12,3 +12,24 @@ def cyr_to_latin(str):
     result = str.strip().lower().translate(tr)
 
     return result
+
+
+
+
+
+
+
+
+def trim_all(str):
+
+    result = str.strip()\
+        .replace("@ ", "@")\
+        .replace("@ ", "@")\
+        .replace("@ ", "@")\
+        .replace(" @", "@")\
+        .replace(" @", "@")\
+        .replace(" @", "@")
+
+    return result
+
+

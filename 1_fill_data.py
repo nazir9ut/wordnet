@@ -2,6 +2,8 @@
 import csv
 from db import *
 
+import helpers
+
 
 
 symbols = (u"аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ",
@@ -24,18 +26,19 @@ with open('/home/naz/Desktop/Untitled Folder/xls/Улдана2-новый Тез
     for row in spamreader:
 
 
-        print unicode(row[0].strip(), "utf-8").lower().translate(tr)
-        print unicode(row[1].strip(), "utf-8").lower().translate(tr)
-        print unicode(row[2].strip(), "utf-8").lower().translate(tr)
+        # print unicode(row[0], "utf-8").lower().translate(tr)
+        # print unicode(row[1], "utf-8").lower().translate(tr)
+        # print unicode(row[2], "utf-8").lower().translate(tr)
 
 
-        Word.create(lex_form = row[0].strip(),
-                    giperonim = row[1].strip(),
-                    giponim = row[2].strip(),
-                    meronim = row[3].strip(),
-                    sinonim = row[4].strip(),
-                    ontonim = row[5].strip(),
-                    omonim = row[6].strip())
+        Word.create(lex_form = row[0],
+                    giperonim = helpers.trim_all(row[1]),
+                    giponim = helpers.trim_all(row[2]),
+                    meronim = helpers.trim_all(row[3]),
+                    sinonim = helpers.trim_all(row[4]),
+                    ontonim = helpers.trim_all(row[5]),
+                    omonim = helpers.trim_all(row[6])
+                    )
 
 
         # print ' '.join(row)
