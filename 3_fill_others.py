@@ -17,9 +17,6 @@ for item in items:
         arr_giperonim = item.giperonim.split('@')
 
         for idx, word in enumerate(arr_giperonim_latin):
-            # print word
-            # print arr_giperonim[idx]
-
 
             exist = Word.select().where(Word.lex_form_latin == word).count() > 0
 
