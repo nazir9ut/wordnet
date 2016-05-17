@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import csv
-
+from db import *
 
 
 
@@ -10,8 +10,10 @@ symbols = (u"аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцч�
 tr = {ord(a):ord(b) for a, b in zip(*symbols)}
 
 
-# text = u'Добрый День'
-# print text.translate(tr)  # looks good
+
+
+
+
 
 
 
@@ -26,6 +28,14 @@ with open('/home/naz/Desktop/Untitled Folder/xls/Улдана2-новый Тез
         print unicode(row[1].strip(), "utf-8").lower().translate(tr)
         print unicode(row[2].strip(), "utf-8").lower().translate(tr)
 
+
+        Word.create(lex_form = row[0].strip(),
+                    giperonim = row[1].strip(),
+                    giponim = row[2].strip(),
+                    meronim = row[3].strip(),
+                    sinonim = row[4].strip(),
+                    ontonim = row[5].strip(),
+                    omonim = row[6].strip())
 
 
         # print ' '.join(row)
