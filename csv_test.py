@@ -5,15 +5,18 @@ import re
 
 
 
+# аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя
 
-symbols = (u"",
-           u"")
+
+
+symbols = (u"аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ",
+           u"aabvggdeejziikqlmnnooprstuuufhhccwwiiiieyy_")
 
 tr = {ord(a):ord(b) for a, b in zip(*symbols)}
 
 
-text = u'Добрый Ден'
-print text.translate(tr)  # looks good
+# text = u'Добрый День'
+# print text.translate(tr)  # looks good
 
 
 
@@ -23,14 +26,13 @@ with open('/home/naz/Desktop/Untitled Folder/xls/Улдана2-новый Тез
 
     for row in spamreader:
 
-        # valid = re.match('^[\w-]+$', ' '.join(row)) is not None
-
         # if not valid:
         str =  row[0].strip()
 
-        str = unicode(str, "utf-8")
 
-        print str.lower()
+        print unicode(str, "utf-8").lower().translate(tr)
+
+
 
         # print ' '.join(row)
         print '--------------------------------------------------------------------------------------------------------------'
