@@ -6,7 +6,7 @@ import helpers
 
 
 
-symbols = (u"аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ",
+symbols = (u"аəбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ",
            u"aabvggdeejziikqlmnnooprstuuufhhccwwiiiieyy_")
 
 tr = {ord(a):ord(b) for a, b in zip(*symbols)}

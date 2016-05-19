@@ -82,6 +82,7 @@ class Word(BaseModel):
     ontonim_latin = TextField()
     omonim = TextField()
     omonim_latin = TextField()
+    xml = TextField()
 
 
 

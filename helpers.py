@@ -3,8 +3,8 @@
 def cyr_to_latin(str):
 
 
-    symbols = (u"аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ",
-               u"aabvggdeejziikqlmnnooprstuuufhhccwwiiiieyy_")
+    symbols = (u"аəбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ә",
+               u"aobvggdeejziikqlmnnooprstuuufhhccwwiiiieyy_o")
 
     tr = {ord(a):ord(b) for a, b in zip(*symbols)}
 
