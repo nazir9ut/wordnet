@@ -31,7 +31,7 @@ with open('/home/naz/Desktop/Untitled Folder/xls/Улдана2-новый Тез
         # print unicode(row[2], "utf-8").lower().translate(tr)
 
 
-        Word.create(lex_form = row[0],
+        Word.create(lex_form = helpers.trim_all(row[0]),
                     giperonim = helpers.trim_all(row[1]),
                     giponim = helpers.trim_all(row[2]),
                     meronim = helpers.trim_all(row[3]),

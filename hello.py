@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask
 import rdflib
 from flask import render_template
@@ -55,27 +57,44 @@ def hello2(name=None):
 
 
 
-     SELECT ?x     ?y    ?z   ?rel
+#      SELECT ?x     ?y    ?z   ?rel
+#         WHERE {
+# my:akparat-noun-1    my:has_giperonim    ?z     .
+#
+# ?z  my:lexical-form  ?rel .
+#
+# ?x     ?y    ?z  .
+#
+#
+#
+#
+#
+# }
+
+
+
+SELECT ?x     ?y    ?z
         WHERE {
-my:akparat-noun-1    my:has_giperonim    ?z     .
-
-?z  my:lexical-form  ?rel .
-
-?x     ?y    ?z  .
+?x    ?y    ?z    FILTER regex( ?z, '^Ақп', 'i')  .
 
 }
 
+
+
      """)
+    data = ''
 
     for row in qres:
         print row.x
         print row.y
         print row.z
-        print row.rel
+        data = row.z
 
 
+    print 'xxxx'
 
-    return 'xxx' + row.rel
+
+    return 'xxx' + data
 
     # return render_template('hello2.html', name=name)
 

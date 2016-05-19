@@ -33,3 +33,11 @@ def trim_all(str):
     return result
 
 
+
+
+
+def to_unicode(str):
+    result = unicode(str.encode('utf-8'), "utf-8")
+
+    return result
+

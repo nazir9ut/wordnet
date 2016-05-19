@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from db import *
 
 import helpers
@@ -72,6 +74,13 @@ for item in items:
 
         for word in arr:
             xml += '<has_omonim rdf:resource="' + base_url + '#' +  word + '"/>\n'
+
+
+
+
+    if item.lex_form:
+        xml += '<lexical-form>' + unicode(item.lex_form.encode('utf-8'), "utf-8") + '</lexical-form>'
+
 
 
 
