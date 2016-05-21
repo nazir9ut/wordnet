@@ -8,13 +8,13 @@
 
 
 
-    $input.on('input',function(e){
-                 $.get($SCRIPT_ROOT + '/_get_collection', {value: $input.val()}, function(data){
-
-                 $input.typeahead({source: data.result});
-
-            },'json');
-    });
+//    $input.on('input',function(e){
+//                 $.get($SCRIPT_ROOT + '/_get_collection', {value: $input.val()}, function(data){
+//
+////                 $input.typeahead({source: data.result});
+//
+//            },'json');
+//    });
 
 
 
@@ -110,5 +110,66 @@
 
 
 
+
+//var availableTags = [
+//      "ActionScript",
+//      "AppleScript",
+//      "Asp",
+//      "BASIC",
+//      "C",
+//      "C++",
+//      "Clojure",
+//      "COBOL",
+//      "ColdFusion",
+//      "Erlang",
+//      "Fortran",
+//      "Groovy",
+//      "Haskell",
+//      "Java",
+//      "JavaScript",
+//      "Lisp",
+//      "Perl",
+//      "PHP",
+//      "Python",
+//      "Ruby",
+//      "Scala",
+//      "Scheme"
+//    ];
+//    $( "#birds" ).autocomplete({
+//      source: availableTags
+//    });
+
+
+
+
+
+
+    $( "#search_input" ).autocomplete({
+      source: $SCRIPT_ROOT + '/_get_collection',
+      minLength: 1,
+      select: function( event, ui ) {
+//        log( ui.item ?
+//          "Selected: " + ui.item.value + " aka " + ui.item.id :
+//          "Nothing selected, input was " + this.value );
+      }
+    });
+
+
+
+
   });
+
+
+
+
+
+
+
+//     function log( message ) {
+//      $( "<div>" ).text( message ).prependTo( "#log" );
+//      $( "#log" ).scrollTop( 0 );
+//    }
+
+
+
 

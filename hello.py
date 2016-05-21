@@ -3,6 +3,7 @@
 from flask import Flask, jsonify, render_template, request
 import rdflib
 from flask import render_template
+import json
 
 import helpers
 import sparql_helper
@@ -37,7 +38,7 @@ def add_numbers():
 def get_collection():
 
 
-    value = request.args.get('value')
+    term = request.args.get('term')
 
 
     g = rdflib.Graph()
@@ -58,7 +59,7 @@ def get_collection():
 
     SELECT ?x     ?y    ?z
             WHERE {
-    ?x    my:lexical-form    ?z    FILTER regex( ?z, '^""" + value + """', 'i')  .
+    ?x    my:lexical-form    ?z    FILTER regex( ?z, '^""" + term + """', 'i')  .
 
     }
 
@@ -69,12 +70,22 @@ def get_collection():
         print row.x
         print row.y
         print row.z
-        result.append(row.z .encode('utf-8'))
+
+        obj = {
+            'id': row.x.encode('utf-8'),
+            'label': row.z.encode('utf-8'),
+            'value': row.z.encode('utf-8')
+        }
+
+        result.append(obj)
         print '----------------------------------------------------------'
 
 
 
-    return jsonify(result=result)
+
+
+    # return jsonify(result=result)
+    return json.dumps(result)
 
 
 
