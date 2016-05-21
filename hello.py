@@ -4,6 +4,8 @@ from flask import Flask, jsonify, render_template, request
 import rdflib
 from flask import render_template
 
+import helpers
+
 app = Flask(__name__)
 
 
@@ -43,11 +45,60 @@ def add_numbers():
 
 
 
+
+@app.route('/_get_collection', methods=['GET', 'POST'])
+def get_collection():
+
+
+    value = request.args.get('value')
+
+
+    g = rdflib.Graph()
+
+    # ... add some triples to g somehow ...
+    g.parse("/home/naz/Desktop/101.owl")
+
+    qres = g.query(
+        """
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-27#>
+
+
+
+    SELECT ?x     ?y    ?z
+            WHERE {
+    ?x    my:lexical-form    ?z    FILTER regex( ?z, '^""" + value + """', 'i')  .
+
+    }
+
+     """)
+    result = []
+
+    for row in qres:
+        print row.x
+        print row.y
+        print row.z
+        result.append(row.z .encode('utf-8'))
+        print '----------------------------------------------------------'
+
+
+
+    # result = ["item1 xxx","item2 yyy","item3 zzz"]
+
+    return jsonify(result=result)
+
+
+
+
+
+
 @app.route('/hello2/')
 @app.route('/hello2/<name>')
 def hello2(name=None):
-
-
 
     g = rdflib.Graph()
 
