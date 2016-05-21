@@ -17,20 +17,6 @@ def index():
 
 
 
-# @app.route('/user/<username>')
-# def show_user_profile(username):
-#     # show the user profile for that user
-#     return 'User %s' % username
-#
-#
-#
-# @app.route('/post/<int:post_id>')
-# def show_post(post_id):
-#     # show the post with the given id, the id is an integer
-#     return 'Post %d' % post_id
-
-
-
 
 
 
@@ -110,31 +96,125 @@ def get_item():
 
     name = sparql_helper.by_lex_form_exact(value)
 
-
-
-
-    arr =  sparql_helper.get_giperonims(name)
-
-
-
     giperonims_coll = []
-
-    for word in arr:
-        giperonims_coll.append(
-            {
-                'name': word,
-                'lex_form': sparql_helper.get_lex_form(word)
-            }
-        )
+    giponims_coll = []
+    meronims_coll = []
+    sinonims_coll = []
+    omonims_coll = []
+    ontonims_coll = []
 
 
 
-    print '++++++++++++++++++++++++++++++='
-    print  giperonims_coll
+
+
+    if name:
+
+        arr =  sparql_helper.get_giperonims(name)
+
+        for word in arr:
+            giperonims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
 
 
 
-    return jsonify(result=giperonims_coll)
+
+
+        arr =  sparql_helper.get_giponims(name)
+
+        for word in arr:
+            giponims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
+
+
+
+
+
+        arr =  sparql_helper.get_meronims(name)
+
+        for word in arr:
+            meronims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
+
+
+
+
+
+        arr =  sparql_helper.get_sinonims(name)
+
+        for word in arr:
+            sinonims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
+
+
+
+
+
+        arr =  sparql_helper.get_omonims(name)
+
+        for word in arr:
+            omonims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
+
+
+
+
+
+        arr =  sparql_helper.get_ontonims(name)
+
+        for word in arr:
+            ontonims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
+
+
+
+
+
+
+
+
+
+
+    return jsonify(
+        giperonims_coll = giperonims_coll,
+        giponims_coll = giponims_coll,
+        meronims_coll = meronims_coll,
+        sinonims_coll = sinonims_coll,
+        omonims_coll = omonims_coll,
+        ontonims_coll = ontonims_coll
+    )
+
+
+
+
+
+
+
+
+
 
 
 
@@ -166,37 +246,21 @@ def hello2(name=None):
 
 
 
-#      SELECT ?x     ?y    ?z   ?rel
-#         WHERE {
-# my:akparat-noun-1    my:has_giperonim    ?z     .
-#
-# ?z  my:lexical-form  ?rel .
-#
-# ?x     ?y    ?z  .
-#
-# }
+    SELECT ?x     ?y    ?z
+            WHERE {
+    ?x    ?y    ?z    FILTER regex( ?z, '^Ақп', 'i')  .
 
-
-
-SELECT ?x     ?y    ?z
-        WHERE {
-?x    ?y    ?z    FILTER regex( ?z, '^Ақп', 'i')  .
-
-}
-
-
+    }
 
      """)
-    data = ''
 
     for row in qres:
         print row.x
         print row.y
         print row.z
-        data = row.z
 
 
-    print 'xxxx'
+
 
 
 
