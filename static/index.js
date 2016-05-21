@@ -11,8 +11,6 @@
     $input.on('input',function(e){
                  $.get($SCRIPT_ROOT + '/_get_collection', {value: $input.val()}, function(data){
 
-
-
                  $input.typeahead({source: data.result});
 
             },'json');
@@ -28,15 +26,9 @@
 
 
 
-//            $input.trigger('input');
-
-
-
-
-
-//             $.get($SCRIPT_ROOT + '/_get_collection', function(data){
+             $.get($SCRIPT_ROOT + '/_get_item', {value: $input.val()}, function(data){
 //                $("#mytype").typeahead({ source:data.result });
-//            },'json');
+            },'json');
 
         });
 

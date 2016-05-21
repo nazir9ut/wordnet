@@ -5,6 +5,7 @@ import rdflib
 from flask import render_template
 
 import helpers
+import sparql_helper
 
 app = Flask(__name__)
 
@@ -87,9 +88,58 @@ def get_collection():
 
 
 
-    # result = ["item1 xxx","item2 yyy","item3 zzz"]
-
     return jsonify(result=result)
+
+
+
+
+
+
+
+
+
+
+
+@app.route('/_get_item', methods=['GET', 'POST'])
+def get_item():
+
+
+    value = request.args.get('value')
+
+
+
+    name = sparql_helper.by_lex_form_exact(value)
+
+
+
+
+    arr =  sparql_helper.get_giperonims(name)
+
+
+
+    giperonims_coll = []
+
+    for word in arr:
+        giperonims_coll.append(
+            {
+                'name': word,
+                'lex_form': sparql_helper.get_lex_form(word)
+            }
+        )
+
+
+
+    print '++++++++++++++++++++++++++++++='
+    print  giperonims_coll
+
+
+
+    return jsonify(result=giperonims_coll)
+
+
+
+
+
 
 
 
@@ -123,10 +173,6 @@ def hello2(name=None):
 # ?z  my:lexical-form  ?rel .
 #
 # ?x     ?y    ?z  .
-#
-#
-#
-#
 #
 # }
 
