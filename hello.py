@@ -44,24 +44,22 @@ def get_collection():
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(sparql_helper.owl_file())
 
     qres = g.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
+        PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
 
 
-
-    SELECT ?x     ?y    ?z
-            WHERE {
-    ?x    my:lexical-form    ?z    FILTER regex( ?z, '^""" + term + """', 'i')  .
-
-    }
+        SELECT ?x     ?y    ?z
+                WHERE {
+                    ?x    my:lexical-form    ?z    FILTER regex( ?z, '^""" + term + """', 'i')  .
+                }
 
      """)
     result = []
@@ -223,10 +221,6 @@ def get_item():
 
 
 
-
-
-
-
     return jsonify(
         giperonims_coll = giperonims_coll,
         giponims_coll = giponims_coll,
@@ -255,45 +249,40 @@ def get_item():
 
 
 
-@app.route('/hello2/')
-@app.route('/hello2/<name>')
-def hello2(name=None):
+@app.route('/hello2')
+def hello2():
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
-
-    qres = g.query(
-        """
-        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-
-    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
-
-
-
-    SELECT ?x     ?y    ?z
-            WHERE {
-    ?x    ?y    ?z    FILTER regex( ?z, '^Ақп', 'i')  .
-
-    }
-
-     """)
-
-    for row in qres:
-        print row.x
-        print row.y
-        print row.z
-
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse("/home/naz/Desktop/101.owl")
+    #
+    # qres = g.query(
+    #     """
+    #     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    #     PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    #     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    #     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    #
+    #     PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
+    #
+    #
+    #
+    #     SELECT ?x     ?y    ?z
+    #             WHERE {
+    #                 ?x    ?y    ?z    FILTER regex( ?z, '^Ақп', 'i')  .
+    #
+    #             }
+    #
+    #  """)
+    #
+    # for row in qres:
+    #     print row.x
+    #     print row.y
+    #     print row.z
 
 
-
-
-
-    return render_template('hello2.html', name=name)
+    return render_template('hello2.html')
 
 
 

@@ -6,7 +6,7 @@ import rdflib
 
 
 def owl_file():
-    result = '/home/naz/Desktop/101.owfl'
+    result = '/home/naz/Desktop/101.owl'
 
     return result
 
