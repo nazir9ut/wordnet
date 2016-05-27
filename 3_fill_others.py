@@ -71,6 +71,29 @@ for item in items:
 
 
 
+
+
+    if item.holonim_latin:
+
+        arr_latin = item.holonim_latin.split('@')
+        arr = item.holonim.split('@')
+
+        for idx, word in enumerate(arr_latin):
+
+            exist = Word.select().where(Word.lex_form_latin == word).count() > 0
+
+
+            if not exist:
+                Word.create(lex_form = arr[idx],
+                            lex_form_latin = word)
+                # pass
+            else:
+                print word
+                # pass
+
+
+
+
     if item.sinonim_latin:
 
         arr_latin = item.sinonim_latin.split('@')

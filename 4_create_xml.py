@@ -33,11 +33,15 @@ for item in items:
 
 
 
+
+
     if item.giponim_latin:
         arr = item.giponim_latin.split('@')
 
         for word in arr:
             xml += '<has_giponim rdf:resource="' + base_url + '#' +  word + '"/>\n'
+
+
 
 
 
@@ -51,11 +55,23 @@ for item in items:
 
 
 
+
+    if item.holonim_latin:
+        arr = item.holonim_latin.split('@')
+
+        for word in arr:
+            xml += '<has_holonim rdf:resource="' + base_url + '#' +  word + '"/>\n'
+
+
+
+
+
     if item.sinonim_latin:
         arr = item.sinonim_latin.split('@')
 
         for word in arr:
             xml += '<has_sinonim rdf:resource="' + base_url + '#' +  word + '"/>\n'
+
 
 
 
@@ -69,6 +85,8 @@ for item in items:
 
 
 
+
+
     if item.omonim_latin:
         arr = item.omonim_latin.split('@')
 
@@ -78,8 +96,16 @@ for item in items:
 
 
 
+
+
     if item.lex_form:
         xml += '<lexical-form>' + unicode(item.lex_form.encode('utf-8'), "utf-8") + '</lexical-form>'
+
+
+
+
+    if item.description:
+        xml += '<description>' + unicode(item.description.encode('utf-8'), "utf-8") + '</description>'
 
 
 

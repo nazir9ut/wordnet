@@ -29,51 +29,19 @@ class BaseModel(Model):
 
 
 
-# class Monitor(BaseModel):
-#     class Meta:
-#         db_table = 'Monitors'
-#
-#     name = CharField(max_length=64, db_column = "Name")
-
-
-
-
-
-# class Event(BaseModel):
-#     class Meta:
-#         db_table = 'Events'
-#
-#     monitor_id = IntegerField(db_column = "MonitorId")
-#     cause = CharField(db_column = "Cause")
-#     length = DecimalField(db_column = "Length")
-#     start_time = DateTimeField(db_column = "StartTime")
-
-
-
-
-
-
-# class PrVideo(BaseModel):
-#     class Meta:
-#         db_table = 'word'
-#
-#     path_and_file = CharField(unique=True, max_length=500)
-#     start_time = DateTimeField()
-#     length = DecimalField()
-#     created_at = DateTimeField(default=datetime.datetime.now)
-
-
-
 class Word(BaseModel):
     class Meta:
         db_table = 'word'
 
     lex_form = TextField(unique=True)
     lex_form_latin = TextField(unique=True)
+    description = TextField()
     giperonim = TextField()
     giperonim_latin = TextField()
     giponim = TextField()
     giponim_latin = TextField()
+    holonim = TextField()
+    holonim_latin = TextField()
     meronim = TextField()
     meronim_latin = TextField()
     sinonim = TextField()
@@ -86,18 +54,3 @@ class Word(BaseModel):
 
 
 
-
-
-# class PrLog(BaseModel):
-#     notes = CharField(max_length=1000)
-#     created_at = DateTimeField(default=datetime.datetime.now)
-
-
-
-
-
-# if not PrVideo.table_exists():
-#     db.create_tables([PrVideo])
-#
-# if not PrLog.table_exists():
-#     db.create_tables([PrLog])
