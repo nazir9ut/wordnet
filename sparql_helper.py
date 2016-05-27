@@ -6,7 +6,7 @@ import rdflib
 
 
 def owl_file():
-    result = '/home/naz/Desktop/101.owl'
+    result = '/home/naz/Desktop/wordnet.owl'
 
     return result
 
@@ -24,7 +24,7 @@ def get_header():
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-27#>
+    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
     """
 
     return result
@@ -60,6 +60,8 @@ def by_lex_form_exact(value):
     arr = []
 
     for row in qres:
+        print "=========================="
+        print row.x.encode('utf-8')
         arr.append(row.x.encode('utf-8'))
 
 

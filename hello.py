@@ -62,7 +62,10 @@ def get_collection():
                 }
 
      """)
+
+
     result = []
+
 
     for row in qres:
         print row.x
@@ -103,7 +106,14 @@ def get_item():
 
 
 
+
+
+
     name = sparql_helper.by_lex_form_exact(value)
+
+
+
+
 
     giperonims_coll = []
     giponims_coll = []
@@ -119,7 +129,16 @@ def get_item():
 
     if name:
 
+
+        print '++++++++++++++++++++++++++++'
+        print name
+
         arr =  sparql_helper.get_giperonims(name)
+
+
+        print '++++++++++++++++++++++++++++'
+        print arr
+
 
         for word in arr:
             giperonims_coll.append(
@@ -180,13 +199,17 @@ def get_item():
 
         arr =  sparql_helper.get_sinonims(name)
 
+        print '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+        print arr
+
         for word in arr:
-            sinonims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
-                }
-            )
+            if word:
+                sinonims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word)
+                    }
+                )
 
 
 
