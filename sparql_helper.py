@@ -4,6 +4,18 @@ import rdflib
 
 
 
+
+def owl_file():
+    result = '/home/naz/Desktop/101.owfl'
+
+    return result
+
+
+
+
+
+
+
 def get_header():
 
     result = """
@@ -33,7 +45,7 @@ def by_lex_form_exact(value):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -74,7 +86,7 @@ def get_giperonims(inst_name):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -106,7 +118,7 @@ def get_giponims(inst_name):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -142,12 +154,54 @@ def get_giponims(inst_name):
 
 
 
+
+def get_holonims(inst_name):
+
+    g = rdflib.Graph()
+
+    # ... add some triples to g somehow ...
+    g.parse(owl_file())
+
+    qres = g.query(
+        get_header() +
+        """
+             SELECT ?x     ?y    ?z   ?rel
+            WHERE {
+            my:""" + inst_name + """    my:has_holonim    ?z     .
+
+            }
+
+     """)
+
+    arr = []
+
+    for row in qres:
+        arr.append(get_clean(row.z))
+
+
+    result = arr
+
+    return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def get_meronims(inst_name):
 
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -189,7 +243,7 @@ def get_sinonims(inst_name):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -237,7 +291,7 @@ def get_omonims(inst_name):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -284,7 +338,7 @@ def get_ontonims(inst_name):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -322,7 +376,7 @@ def get_lex_form(inst_name):
     g = rdflib.Graph()
 
     # ... add some triples to g somehow ...
-    g.parse("/home/naz/Desktop/101.owl")
+    g.parse(owl_file())
 
     qres = g.query(
         get_header() +

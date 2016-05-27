@@ -10,7 +10,7 @@ items = Word.select()
 for item in items:
 
 
-    base_url = 'http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-27'
+    base_url = 'http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39'
 
 
 
@@ -19,7 +19,7 @@ for item in items:
 
 
 
-    xml += '<rdf:type rdf:resource="' + base_url + '#zatesim"/>\n'
+    xml += '<rdf:type rdf:resource="' + base_url + '#zat_esim"/>\n'
 
 
 

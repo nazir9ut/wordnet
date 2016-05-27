@@ -53,7 +53,7 @@ def get_collection():
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-27#>
+    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
 
 
 
@@ -109,6 +109,7 @@ def get_item():
 
     giperonims_coll = []
     giponims_coll = []
+    holonims_coll = []
     meronims_coll = []
     sinonims_coll = []
     omonims_coll = []
@@ -138,6 +139,23 @@ def get_item():
 
         for word in arr:
             giponims_coll.append(
+                {
+                    'name': word,
+                    'lex_form': sparql_helper.get_lex_form(word)
+                }
+            )
+
+
+
+
+
+
+
+
+        arr =  sparql_helper.get_holonims(name)
+
+        for word in arr:
+            holonims_coll.append(
                 {
                     'name': word,
                     'lex_form': sparql_helper.get_lex_form(word)
@@ -253,7 +271,7 @@ def hello2(name=None):
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-27#>
+    PREFIX my: <http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#>
 
 
 
