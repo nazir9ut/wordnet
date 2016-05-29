@@ -237,9 +237,20 @@ def get_item():
 
 
 
+
+
+
         aniktama = sparql_helper.get_descr(name)
 
-        print aniktama
+
+
+
+        is_zatesim = sparql_helper.is_zatesim(name)
+
+        print '===================== is_zatesim'
+        print is_zatesim
+
+
 
 
 

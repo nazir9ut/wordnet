@@ -402,13 +402,13 @@ def get_descr(inst_name):
 
 
     if len(arr) > 0:
-        result = arr[0]
+        result = get_clean(arr[0])
     else:
         result = None
 
 
 
-    return get_clean(result)
+    return result
 
 
 
@@ -448,10 +448,53 @@ def get_lex_form(inst_name):
 
 
     if len(arr) > 0:
+        result = get_clean(arr[0])
+    else:
+        result = None
+
+
+
+    return result
+
+
+
+
+
+
+
+
+def is_zatesim(inst_name):
+    g = rdflib.Graph()
+
+    # ... add some triples to g somehow ...
+    g.parse(owl_file())
+
+    qres = g.query(
+        get_header() +
+        """
+             SELECT ?x     ?y    ?z
+            WHERE {
+            my:""" + inst_name + """    my:is-zatesim    ?z     .
+
+            }
+
+     """)
+
+
+
+    arr = []
+
+
+    for row in qres:
+        arr.append(row.z.encode('utf-8'))
+
+
+
+    if len(arr) > 0:
         result = arr[0]
     else:
         result = None
 
 
 
-    return get_clean(result)
+    return result

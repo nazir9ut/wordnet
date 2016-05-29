@@ -23,11 +23,14 @@
 
                     html = '';
 
-                    html += '<h4> Aniktama </h4>';
-                    html += data.aniktama;
+                    if(data.aniktama){
+                        html += '<h4> Aniktama </h4>';
+                        html += data.aniktama;
 
-                    html += '<br>';
-                    html += '<br>';
+                        html += '<br>';
+                        html += '<br>';
+                    }
+
 
                     html += getHtml(data.giperonims_coll, 'Гипероним');
 
