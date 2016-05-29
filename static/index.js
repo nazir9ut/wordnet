@@ -24,7 +24,7 @@
                     html = '';
 
                     if(data.aniktama){
-                        html += '<h4> Aniktama </h4>';
+                        html += '<h4> Анықтамасы  </h4>';
                         html += data.aniktama;
 
                         html += '<br>';
@@ -36,7 +36,7 @@
 
                     html += getHtml(data.giponims_coll, 'Гипоним');
 
-                    html += getHtml(data.holonims_coll, 'Holonim');
+                    html += getHtml(data.holonims_coll, 'Холоним');
 
                     html += getHtml(data.meronims_coll, 'Мероним');
 
