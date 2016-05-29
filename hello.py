@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Index Page'
+    return render_template('index.html')
 
 
 
@@ -22,11 +22,13 @@ def index():
 
 
 
-@app.route('/_add_numbers', methods=['GET', 'POST'])
-def add_numbers():
-    a = request.form['a']
-    b = request.form['b']
-    return jsonify(result=a + b)
+# @app.route('/_add_numbers', methods=['GET', 'POST'])
+# def add_numbers():
+#     a = request.form['a']
+#     b = request.form['b']
+#     return jsonify(result=a + b)
+
+
 
 
 
@@ -308,8 +310,8 @@ def get_item():
 
 
 
-@app.route('/hello2')
-def hello2():
+# @app.route('/hello2')
+# def hello2():
 
     # g = rdflib.Graph()
     #
@@ -341,7 +343,7 @@ def hello2():
     #     print row.z
 
 
-    return render_template('hello2.html')
+    # return render_template('hello2.html')
 
 
 
