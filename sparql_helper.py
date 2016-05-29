@@ -40,12 +40,12 @@ def get_clean(url):
 
 
 
-def by_lex_form_exact(value):
+def by_lex_form_exact(value, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -81,12 +81,12 @@ def by_lex_form_exact(value):
 
 
 
-def get_giperonims(inst_name):
+def get_giperonims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -113,12 +113,12 @@ def get_giperonims(inst_name):
 
 
 
-def get_giponims(inst_name):
+def get_giponims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -155,12 +155,12 @@ def get_giponims(inst_name):
 
 
 
-def get_holonims(inst_name):
+def get_holonims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -196,12 +196,12 @@ def get_holonims(inst_name):
 
 
 
-def get_meronims(inst_name):
+def get_meronims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -238,12 +238,12 @@ def get_meronims(inst_name):
 
 
 
-def get_sinonims(inst_name):
+def get_sinonims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -286,12 +286,12 @@ def get_sinonims(inst_name):
 
 
 
-def get_omonims(inst_name):
+def get_omonims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -333,12 +333,12 @@ def get_omonims(inst_name):
 
 
 
-def get_ontonims(inst_name):
+def get_ontonims(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -374,12 +374,12 @@ def get_ontonims(inst_name):
 
 
 
-def get_descr(inst_name):
+def get_descr(inst_name, g):
 
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -420,11 +420,11 @@ def get_descr(inst_name):
 
 
 
-def get_lex_form(inst_name):
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+def get_lex_form(inst_name, g):
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
@@ -463,11 +463,11 @@ def get_lex_form(inst_name):
 
 
 
-def is_zatesim(inst_name):
-    g = rdflib.Graph()
-
-    # ... add some triples to g somehow ...
-    g.parse(owl_file())
+def is_zatesim(inst_name, g):
+    # g = rdflib.Graph()
+    #
+    # # ... add some triples to g somehow ...
+    # g.parse(owl_file())
 
     qres = g.query(
         get_header() +
