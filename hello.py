@@ -68,14 +68,21 @@ def get_collection():
 
 
     for row in qres:
-        print row.x
-        print row.y
-        print row.z
+        print 'sparql_helper.get_clean(row.x.encode("utf-8"))'
+        instance_name = sparql_helper.get_clean(row.x.encode('utf-8'))
+
+        is_zatesim = sparql_helper.is_zatesim(instance_name)
+
+        print instance_name
+
+
+
+
 
         obj = {
             'id': row.x.encode('utf-8'),
             'label': row.z.encode('utf-8'),
-            'value': row.z.encode('utf-8')
+            'is_zatesim': is_zatesim
         }
 
         result.append(obj)
@@ -135,13 +142,14 @@ def get_item():
         arr =  sparql_helper.get_giperonims(name)
 
         for word in arr:
-            giperonims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word),
-                    'is_zatesim': sparql_helper.is_zatesim(word)
-                }
-            )
+            if word:
+                giperonims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
+                    }
+                )
 
 
 
@@ -153,13 +161,14 @@ def get_item():
         arr =  sparql_helper.get_giponims(name)
 
         for word in arr:
-            giponims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word),
-                    'is_zatesim': sparql_helper.is_zatesim(word)
-                }
-            )
+            if word:
+                giponims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
+                    }
+                )
 
 
 
@@ -171,13 +180,14 @@ def get_item():
         arr =  sparql_helper.get_holonims(name)
 
         for word in arr:
-            holonims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word),
-                    'is_zatesim': sparql_helper.is_zatesim(word)
-                }
-            )
+            if word:
+                holonims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
+                    }
+                )
 
 
 
@@ -186,13 +196,14 @@ def get_item():
         arr =  sparql_helper.get_meronims(name)
 
         for word in arr:
-            meronims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word),
-                    'is_zatesim': sparql_helper.is_zatesim(word)
-                }
-            )
+            if word:
+                meronims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
+                    }
+                )
 
 
 
@@ -217,13 +228,14 @@ def get_item():
         arr =  sparql_helper.get_omonims(name)
 
         for word in arr:
-            omonims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word),
-                    'is_zatesim': sparql_helper.is_zatesim(word)
-                }
-            )
+            if word:
+                omonims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
+                    }
+                )
 
 
 
@@ -232,13 +244,14 @@ def get_item():
         arr =  sparql_helper.get_ontonims(name)
 
         for word in arr:
-            ontonims_coll.append(
-                {
-                    'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word),
-                    'is_zatesim': sparql_helper.is_zatesim(word)
-                }
-            )
+            if word:
+                ontonims_coll.append(
+                    {
+                        'name': word,
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
+                    }
+                )
 
 
 

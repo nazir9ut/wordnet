@@ -128,11 +128,30 @@
       source: $SCRIPT_ROOT + '/_get_collection',
       minLength: 1,
       select: function( event, ui ) {
-//        log( ui.item ?
-//          "Selected: " + ui.item.value + " aka " + ui.item.id :
-//          "Nothing selected, input was " + this.value );
+
       }
-    });
+    })
+    .autocomplete("instance")._renderItem = function(ul, item){
+        var append_text = '';
+
+
+
+        if(item.is_zatesim == 1){
+            append_text += '<strong>';
+            append_text += item.label;
+            append_text += '</strong>';
+        }
+        else{
+            append_text += item.label;
+        }
+
+
+
+
+        return $('<li>')
+        .append('<a>' +  append_text + '</a>')
+        .appendTo(ul);
+    };
 
 
 

@@ -581,8 +581,7 @@
 
 
 
-<owl:NamedIndividual rdf:about="http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#aqparattiq_qauipsizdik_basqaru_juiesi_
-aqbj">
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#aqparattiq_qauipsizdik_basqaru_juiesi_aqbj">
 <rdf:type rdf:resource="http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#zat_esim"/>
 <has_giperonim rdf:resource="http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#basqaru_juiesi"/>
 <has_giponim rdf:resource="http://www.semanticweb.org/naz/ontologies/2016/4/untitled-ontology-39#aqparattiq_qauipsizdik"/>
