@@ -122,6 +122,7 @@ def get_item():
     sinonims_coll = []
     omonims_coll = []
     ontonims_coll = []
+    aniktama = ''
 
 
 
@@ -130,14 +131,14 @@ def get_item():
     if name:
 
 
-        print '++++++++++++++++++++++++++++'
-        print name
+        # print '++++++++++++++++++++++++++++'
+        # print name
 
         arr =  sparql_helper.get_giperonims(name)
 
 
-        print '++++++++++++++++++++++++++++'
-        print arr
+        # print '++++++++++++++++++++++++++++'
+        # print arr
 
 
         for word in arr:
@@ -199,9 +200,6 @@ def get_item():
 
         arr =  sparql_helper.get_sinonims(name)
 
-        print '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
-        print arr
-
         for word in arr:
             if word:
                 sinonims_coll.append(
@@ -243,14 +241,24 @@ def get_item():
 
 
 
+        aniktama = sparql_helper.get_descr(name)
+
+        print aniktama
+
+
+
+
+
 
     return jsonify(
         giperonims_coll = giperonims_coll,
         giponims_coll = giponims_coll,
+        holonims_coll = holonims_coll,
         meronims_coll = meronims_coll,
         sinonims_coll = sinonims_coll,
         omonims_coll = omonims_coll,
-        ontonims_coll = ontonims_coll
+        ontonims_coll = ontonims_coll,
+        aniktama = aniktama
     )
 
 

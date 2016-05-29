@@ -4,19 +4,6 @@
     var $input = $('.typeahead');
 
 
-//    $input.typeahead();
-
-
-
-//    $input.on('input',function(e){
-//                 $.get($SCRIPT_ROOT + '/_get_collection', {value: $input.val()}, function(data){
-//
-////                 $input.typeahead({source: data.result});
-//
-//            },'json');
-//    });
-
-
 
 
 
@@ -35,11 +22,25 @@
 
 
                     html = '';
+
+                    html += '<h4> Aniktama </h4>';
+                    html += data.aniktama;
+
+                    html += '<br>';
+                    html += '<br>';
+
                     html += getHtml(data.giperonims_coll, 'Гипероним');
+
                     html += getHtml(data.giponims_coll, 'Гипоним');
+
+                    html += getHtml(data.holonims_coll, 'Holonim');
+
                     html += getHtml(data.meronims_coll, 'Мероним');
+
                     html += getHtml(data.sinonims_coll, 'Синоним');
+
                     html += getHtml(data.omonims_coll, 'Онтоним');
+
                     html += getHtml(data.ontonims_coll, 'Омоним');
 
 
@@ -107,37 +108,6 @@
 
 
 
-
-
-
-
-//var availableTags = [
-//      "ActionScript",
-//      "AppleScript",
-//      "Asp",
-//      "BASIC",
-//      "C",
-//      "C++",
-//      "Clojure",
-//      "COBOL",
-//      "ColdFusion",
-//      "Erlang",
-//      "Fortran",
-//      "Groovy",
-//      "Haskell",
-//      "Java",
-//      "JavaScript",
-//      "Lisp",
-//      "Perl",
-//      "PHP",
-//      "Python",
-//      "Ruby",
-//      "Scala",
-//      "Scheme"
-//    ];
-//    $( "#birds" ).autocomplete({
-//      source: availableTags
-//    });
 
 
 

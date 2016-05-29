@@ -6,7 +6,7 @@ import rdflib
 
 
 def owl_file():
-    result = '/home/naz/Desktop/wordnet.owl'
+    result = './wordnet.owl'
 
     return result
 
@@ -60,8 +60,6 @@ def by_lex_form_exact(value):
     arr = []
 
     for row in qres:
-        print "=========================="
-        print row.x.encode('utf-8')
         arr.append(row.x.encode('utf-8'))
 
 
@@ -363,6 +361,54 @@ def get_ontonims(inst_name):
     result = arr
 
     return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+def get_descr(inst_name):
+
+    g = rdflib.Graph()
+
+    # ... add some triples to g somehow ...
+    g.parse(owl_file())
+
+    qres = g.query(
+        get_header() +
+        """
+             SELECT ?x     ?y    ?z
+            WHERE {
+            my:""" + inst_name + """    my:description    ?z     .
+
+            }
+
+     """)
+
+
+    arr = []
+
+
+    for row in qres:
+        arr.append(row.z.encode('utf-8'))
+
+
+
+    if len(arr) > 0:
+        result = arr[0]
+    else:
+        result = None
+
+
+
+    return get_clean(result)
 
 
 
