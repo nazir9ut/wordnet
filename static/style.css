@@ -21,4 +21,14 @@ div#loading_div{
 }
 
 
+.navbar-default{
+    background-color: #337ab7 !important;
+}
 
+.navbar-default .navbar-brand {
+    color: #fff !important;
+}
+
+body{
+    background: url(./bg.jpg);
+}
