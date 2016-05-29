@@ -490,6 +490,8 @@ def is_zatesim(inst_name):
 
 
 
+
+
     if len(arr) > 0:
         result = arr[0]
     else:

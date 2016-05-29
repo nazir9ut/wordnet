@@ -4,3 +4,8 @@ git push -u origin master
 <!--{% for giperonim_obj in giperonims_coll %}-->
 <!--<div>{{ giperonim_obj[0]['name'] }}</div>-->
 <!--{% endfor %}-->
+
+
+
+
+регрессивті шкала

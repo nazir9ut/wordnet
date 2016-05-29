@@ -76,7 +76,14 @@
                     console.log(value);
 
                     html += '<li>';
-                    html += value.lex_form;
+
+                    if(value.is_zatesim){
+                        html += '<b class="is_zatesim">' + value.lex_form + '</b>';
+                    }
+                    else{
+                        html += value.lex_form;
+                    }
+
                     html += '</li>';
 
                 });
@@ -130,18 +137,31 @@
 
 
 
+
+
+    $('body').on('click', '.is_zatesim', function(){
+
+        console.log('is_zatesim');
+
+
+        var text = $(this).html();
+
+         console.log(text);
+
+
+         $('#search_input').val(text);
+
+
+        $('.btn_submit').trigger('click');
+
+    });
+
+
+
+
   });
 
 
-
-
-
-
-
-//     function log( message ) {
-//      $( "<div>" ).text( message ).prependTo( "#log" );
-//      $( "#log" ).scrollTop( 0 );
-//    }
 
 
 

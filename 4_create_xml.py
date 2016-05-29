@@ -107,7 +107,7 @@ for item in items:
 
 
 
-    if item.is_zatesim:
+    if item.is_zatesim == 1:
         xml += '<is-zatesim>' + '1' + '</is-zatesim>'
 
 

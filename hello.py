@@ -138,7 +138,8 @@ def get_item():
             giperonims_coll.append(
                 {
                     'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
+                    'lex_form': sparql_helper.get_lex_form(word),
+                    'is_zatesim': sparql_helper.is_zatesim(word)
                 }
             )
 
@@ -155,7 +156,8 @@ def get_item():
             giponims_coll.append(
                 {
                     'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
+                    'lex_form': sparql_helper.get_lex_form(word),
+                    'is_zatesim': sparql_helper.is_zatesim(word)
                 }
             )
 
@@ -172,7 +174,8 @@ def get_item():
             holonims_coll.append(
                 {
                     'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
+                    'lex_form': sparql_helper.get_lex_form(word),
+                    'is_zatesim': sparql_helper.is_zatesim(word)
                 }
             )
 
@@ -186,7 +189,8 @@ def get_item():
             meronims_coll.append(
                 {
                     'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
+                    'lex_form': sparql_helper.get_lex_form(word),
+                    'is_zatesim': sparql_helper.is_zatesim(word)
                 }
             )
 
@@ -201,7 +205,8 @@ def get_item():
                 sinonims_coll.append(
                     {
                         'name': word,
-                        'lex_form': sparql_helper.get_lex_form(word)
+                        'lex_form': sparql_helper.get_lex_form(word),
+                        'is_zatesim': sparql_helper.is_zatesim(word)
                     }
                 )
 
@@ -215,7 +220,8 @@ def get_item():
             omonims_coll.append(
                 {
                     'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
+                    'lex_form': sparql_helper.get_lex_form(word),
+                    'is_zatesim': sparql_helper.is_zatesim(word)
                 }
             )
 
@@ -229,7 +235,8 @@ def get_item():
             ontonims_coll.append(
                 {
                     'name': word,
-                    'lex_form': sparql_helper.get_lex_form(word)
+                    'lex_form': sparql_helper.get_lex_form(word),
+                    'is_zatesim': sparql_helper.is_zatesim(word)
                 }
             )
 
@@ -247,8 +254,8 @@ def get_item():
 
         is_zatesim = sparql_helper.is_zatesim(name)
 
-        print '===================== is_zatesim'
-        print is_zatesim
+        # print '===================== is_zatesim'
+        # print is_zatesim
 
 
 
@@ -265,7 +272,8 @@ def get_item():
         sinonims_coll = sinonims_coll,
         omonims_coll = omonims_coll,
         ontonims_coll = ontonims_coll,
-        aniktama = aniktama
+        aniktama = aniktama,
+        is_zatesim = is_zatesim
     )
 
 
