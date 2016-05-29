@@ -6,18 +6,6 @@ import helpers
 
 
 
-# symbols = (u"аəбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюя ",
-#            u"aabvggdeejziikqlmnnooprstuuufhhccwwiiiieyy_")
-#
-# tr = {ord(a):ord(b) for a, b in zip(*symbols)}
-
-
-
-
-
-
-
-
 
 
 with open('/home/naz/Desktop/wordnet/xls2/НОВЫЙ Тезаурус (1).csv', 'rb') as csvfile:
@@ -25,11 +13,6 @@ with open('/home/naz/Desktop/wordnet/xls2/НОВЫЙ Тезаурус (1).csv', 
 
     for row in spamreader:
 
-        # print unicode(row[0], "utf-8").lower().translate(tr)
-        # print unicode(row[1], "utf-8").lower().translate(tr)
-        # print unicode(row[2], "utf-8").lower().translate(tr)
-
-        # print row[1]
 
         Word.create(
             lex_form = helpers.trim_all(row[0]),
@@ -48,7 +31,9 @@ with open('/home/naz/Desktop/wordnet/xls2/НОВЫЙ Тезаурус (1).csv', 
 
             omonim = helpers.trim_all(row[7]),
 
-            meronim = helpers.trim_all(row[8])
+            meronim = helpers.trim_all(row[8]),
+
+            is_zatesim = True
         )
 
 

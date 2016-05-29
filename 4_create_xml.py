@@ -104,6 +104,17 @@ for item in items:
 
 
 
+
+
+
+    if item.is_zatesim:
+        xml += '<is-zatesim>' + '1' + '</is-zatesim>'
+
+
+
+
+
+
     if item.description:
         xml += '<description>' + unicode(item.description.encode('utf-8'), "utf-8") + '</description>'
 

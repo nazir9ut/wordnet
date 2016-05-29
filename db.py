@@ -50,6 +50,7 @@ class Word(BaseModel):
     ontonim_latin = TextField()
     omonim = TextField()
     omonim_latin = TextField()
+    is_zatesim = BooleanField()
     xml = TextField()
 
 

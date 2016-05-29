@@ -131,15 +131,8 @@ def get_item():
     if name:
 
 
-        # print '++++++++++++++++++++++++++++'
-        # print name
 
         arr =  sparql_helper.get_giperonims(name)
-
-
-        # print '++++++++++++++++++++++++++++'
-        # print arr
-
 
         for word in arr:
             giperonims_coll.append(
@@ -148,6 +141,9 @@ def get_item():
                     'lex_form': sparql_helper.get_lex_form(word)
                 }
             )
+
+
+
 
 
 
